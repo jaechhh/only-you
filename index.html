@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>only you</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #dff5ea, #b7e4c7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Text */
+.text {
+  position: absolute;
+  top: 12%;
+  font-size: 2.5rem;
+  color: #2f6f5f;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: fadeIn 2.5s ease forwards;
+}
+
+/* Bouquet */
+.bouquet {
+  position: relative;
+  width: 420px;
+  height: 360px;
+}
+
+/* Lily */
+.lily {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  animation: bloom 2.8s ease forwards;
+  transform: scale(0);
+}
+
+.petal {
+  position: absolute;
+  width: 60px;
+  height: 100px;
+  background: radial-gradient(circle at top, #ffffff, #e9fff6);
+  border-radius: 50%;
+  transform-origin: bottom center;
+  box-shadow: 0 0 18px rgba(255,255,255,0.9);
+}
+
+.petal:nth-child(1) { transform: rotate(0deg); }
+.petal:nth-child(2) { transform: rotate(60deg); }
+.petal:nth-child(3) { transform: rotate(120deg); }
+.petal:nth-child(4) { transform: rotate(180deg); }
+.petal:nth-child(5) { transform: rotate(240deg); }
+.petal:nth-child(6) { transform: rotate(300deg); }
+
+.center {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  background: linear-gradient(to bottom, #ffe066, #ffd43b);
+  border-radius: 50%;
+  top: 47px;
+  left: 47px;
+}
+
+/* Bouquet layout */
+.l1 { left: 150px; top: 30px; animation-delay: 0s; }
+.l2 { left: 80px;  top: 120px; animation-delay: 0.3s; }
+.l3 { left: 220px; top: 120px; animation-delay: 0.6s; }
+.l4 { left: 40px;  top: 210px; animation-delay: 0.9s; }
+.l5 { left: 280px; top: 210px; animation-delay: 1.2s; }
+
+/* White floating particles */
+.float {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  animation: floatSide linear infinite;
+}
+
+@keyframes floatSide {
+  from { transform: translateX(0); }
+  to { transform: translateX(110vw); }
+}
+
+/* Animations */
+@keyframes bloom {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="text">only you dumdum</div>
+
+<div class="bouquet">
+  <div class="lily l1">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="center"></div>
+  </div>
+
+  <div class="lily l2">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="center"></div>
+  </div>
+
+  <div class="lily l3">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="center"></div>
+  </div>
+
+  <div class="lily l4">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="center"></div>
+  </div>
+
+  <div class="lily l5">
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    <div class="center"></div>
+  </div>
+</div>
+
+<script>
+function createFloat() {
+  const f = document.createElement("div");
+  f.className = "float";
+  f.style.top = Math.random() * 100 + "vh";
+  f.style.left = "-10px";
+  f.style.animationDuration = (6 + Math.random() * 6) + "s";
+  document.body.appendChild(f);
+  setTimeout(() => f.remove(), 12000);
+}
+setInterval(createFloat, 400);
+</script>
+
+</body>
+</html>
